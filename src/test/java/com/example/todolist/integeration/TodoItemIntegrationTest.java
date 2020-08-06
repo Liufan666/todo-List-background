@@ -48,7 +48,7 @@ public class TodoItemIntegrationTest {
     void should_add_one_todoItem_when_add_todoItem_given_one_todoItem() throws Exception {
         String todoItemJsonPayload = "{\n" +
                 "      \"content\": \"kevin\",\n" +
-                "      \"status\": 0\n" +
+                "      \"status\": false\n" +
                 "     }";
 
         mockMvc.perform(post("/todoItems").contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayload)).andExpect(status().isOk());
@@ -62,7 +62,7 @@ public class TodoItemIntegrationTest {
 
         String todoItemJsonPayload = "{\n" +
                 "      \"content\": \"kevin\",\n" +
-                "      \"status\": 0\n" +
+                "      \"status\": false\n" +
                 "     }";
 
         mockMvc.perform(post("/todoItems").contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayload)).andExpect(status().isOk());
@@ -77,18 +77,18 @@ public class TodoItemIntegrationTest {
     void should_return_1_when_update_todoItem_given_JSON() throws Exception {
         String todoItemJsonPayload = "{\n" +
                 "      \"content\": \"kevin\",\n" +
-                "      \"status\": 0\n" +
+                "      \"status\": false\n" +
                 "     }";
 
         mockMvc.perform(post("/todoItems").contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayload)).andExpect(status().isOk());
         Integer id = todoItemRepository.findAll().stream().findFirst().get().getId();
         String todoItemJsonPayloadPut = "{\n" +
                 "      \"content\": \"kevin\",\n" +
-                "      \"status\": 1\n" +
+                "      \"status\": true\n" +
                 "     }";
 
         mockMvc.perform(MockMvcRequestBuilders.put("/todoItems/"+id).contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayloadPut)).andExpect(status().is2xxSuccessful());
-        assertEquals(1, todoItemRepository.findById(id).get().getStatus());
+        assertEquals(true, todoItemRepository.findById(id).get().getStatus());
     }
 
 

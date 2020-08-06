@@ -9,17 +9,17 @@ public class TodoItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String content;
-    private Integer status;
+    private Boolean status;
 
     public TodoItem() {
     }
 
-    public TodoItem(String content, Integer status) {
+    public TodoItem(String content, Boolean status) {
         this.content = content;
         this.status = status;
     }
 
-    public TodoItem(Integer id, String content, Integer status) {
+    public TodoItem(Integer id, String content, Boolean status) {
         this.id = id;
         this.content = content;
         this.status = status;
@@ -41,11 +41,11 @@ public class TodoItem {
         this.content = content;
     }
 
-    public Integer getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 }

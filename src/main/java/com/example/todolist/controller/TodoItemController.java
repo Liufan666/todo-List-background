@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/todoItems")
+@CrossOrigin("*")
 public class TodoItemController {
     private final TodoItemService todoItemService;
 
