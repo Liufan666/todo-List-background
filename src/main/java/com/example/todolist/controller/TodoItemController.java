@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/todoItem")
+@RequestMapping("/todoItems")
 public class TodoItemController {
     private final TodoItemService todoItemService;
 
