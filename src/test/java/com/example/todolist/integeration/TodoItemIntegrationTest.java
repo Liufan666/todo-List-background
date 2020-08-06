@@ -66,7 +66,7 @@ public class TodoItemIntegrationTest {
                 "     }";
 
         mockMvc.perform(post("/todoItems").contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayload)).andExpect(status().isOk());
-        Integer id = todoItemRepository.findAll().get(0).getId();
+        Integer id = todoItemRepository.findAll().stream().findFirst().get().getId();
         mockMvc.perform(MockMvcRequestBuilders.delete("/todoItems/"+id))
                 .andExpect(status().is2xxSuccessful());
         List<TodoItem> todoItemList = todoItemRepository.findAll();

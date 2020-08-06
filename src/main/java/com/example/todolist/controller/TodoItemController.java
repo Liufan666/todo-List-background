@@ -28,12 +28,12 @@ public class TodoItemController {
         todoItemService.addTodoItem(todoItem);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public void updateTodoItem(@PathVariable Integer id, @RequestBody TodoItem todoItem) {
         todoItemService.updateTodoItem(id, todoItem);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteTodoItem(@PathVariable Integer id) {
         todoItemService.deleteTodoItem(id);
     }
