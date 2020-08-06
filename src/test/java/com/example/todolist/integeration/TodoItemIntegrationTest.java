@@ -73,26 +73,23 @@ public class TodoItemIntegrationTest {
         assertEquals(0,todoItemList.size());
     }
 
-//    @Test
-//    void should_return_keven1113_when_update_employee_given_JSON() throws Exception {
-//        String employeeJsonPayload = "{\n" +
-//                "      \"name\": \"keven11111\",\n" +
-//                "      \"age\": 20,\n" +
-//                "      \"gender\": \"Male\",\n" +
-//                "      \"companyId\" : 1\n" +
-//                "     }";
-//        mockMvc.perform(post("/employees").contentType(MediaType.APPLICATION_JSON).content(employeeJsonPayload)).andExpect(status().isCreated());
-//        Integer id = employeeRepository.findAll().get(0).getId();//todo
-//        String employeeJsonPayloadPut = "{\n" +
-//                "      \"name\": \"keven1113\",\n" +
-//                "      \"age\": 20,\n" +
-//                "      \"gender\": \"Male\",\n" +
-//                "      \"companyId\" : 1\n" +
-//                "     }";
-//
-//        mockMvc.perform(MockMvcRequestBuilders.put("/employees/"+id).contentType(MediaType.APPLICATION_JSON).content(employeeJsonPayloadPut)).andExpect(status().is2xxSuccessful());
-//        assertEquals("keven1113", employeeRepository.findAll().get(0).getName());
-//    }
+    @Test
+    void should_return_1_when_update_todoItem_given_JSON() throws Exception {
+        String todoItemJsonPayload = "{\n" +
+                "      \"content\": \"kevin\",\n" +
+                "      \"status\": 0\n" +
+                "     }";
+
+        mockMvc.perform(post("/todoItems").contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayload)).andExpect(status().isOk());
+        Integer id = todoItemRepository.findAll().stream().findFirst().get().getId();
+        String todoItemJsonPayloadPut = "{\n" +
+                "      \"content\": \"kevin\",\n" +
+                "      \"status\": 1\n" +
+                "     }";
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/todoItems/"+id).contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayloadPut)).andExpect(status().is2xxSuccessful());
+        assertEquals("1", todoItemRepository.findById(id).get().getStatus());
+    }
 
 
 
