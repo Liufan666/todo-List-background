@@ -88,7 +88,7 @@ public class TodoItemIntegrationTest {
                 "     }";
 
         mockMvc.perform(MockMvcRequestBuilders.put("/todoItems/"+id).contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayloadPut)).andExpect(status().is2xxSuccessful());
-        assertEquals("1", todoItemRepository.findById(id).get().getStatus());
+        assertEquals(1, todoItemRepository.findById(id).get().getStatus());
     }
 
 
