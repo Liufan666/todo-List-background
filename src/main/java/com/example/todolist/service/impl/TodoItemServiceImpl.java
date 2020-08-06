@@ -18,7 +18,7 @@ public class TodoItemServiceImpl implements TodoItemService {
 
     @Override
     public List<TodoItem> getTodoItems() {
-        return null;
+        return todoItemRepository.findAll();
     }
 
     @Override
