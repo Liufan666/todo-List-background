@@ -40,9 +40,12 @@ public class TodoItemServiceTest {
     void should_return_1_todoItem_when_add_todoItem_given_1_todoItem() {
         //given
         TodoItem todoItem = new TodoItem(1,"content",false);
+        Mockito.when(todoItemRepository.save(todoItem)).thenReturn(todoItem);
         //when
         TodoItem result = todoItemService.addTodoItem(todoItem);
         //then
         assertEquals(todoItem.getContent(),result.getContent());
     }
+
+
 }
