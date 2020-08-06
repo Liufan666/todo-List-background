@@ -9,7 +9,7 @@ import java.util.List;
 public interface TodoItemService {
     List<TodoItem> getTodoItems();
 
-    void addTodoItem(TodoItem todoItem);
+    TodoItem addTodoItem(TodoItem todoItem);
 
     void updateTodoItem(Integer id, TodoItem todoItem);
 

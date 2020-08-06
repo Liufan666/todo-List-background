@@ -22,8 +22,9 @@ public class TodoItemServiceImpl implements TodoItemService {
     }
 
     @Override
-    public void addTodoItem(TodoItem todoItem) {
+    public TodoItem addTodoItem(TodoItem todoItem) {
 
+        return null;
     }
 
     @Override

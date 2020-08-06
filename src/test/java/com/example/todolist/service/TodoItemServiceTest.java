@@ -35,4 +35,14 @@ public class TodoItemServiceTest {
         //then
         assertEquals(1,todoItemListGet.size());
     }
+
+    @Test
+    void should_return_1_todoItem_when_add_todoItem_given_1_todoItem() {
+        //given
+        TodoItem todoItem = new TodoItem(1,"content",false);
+        //when
+        TodoItem result = todoItemService.addTodoItem(todoItem);
+        //then
+        assertEquals(todoItem.getContent(),result.getContent());
+    }
 }

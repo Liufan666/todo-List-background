@@ -8,7 +8,14 @@ public class TodoItem {
     private String content;
     private boolean status;
 
+    public TodoItem() {
+    }
 
+    public TodoItem(Integer id, String content, boolean status) {
+        this.id = id;
+        this.content = content;
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;
