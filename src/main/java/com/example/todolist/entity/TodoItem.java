@@ -1,17 +1,25 @@
 package com.example.todolist.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "todoitem")
 public class TodoItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String content;
-    private boolean status;
+    private Integer status;
 
     public TodoItem() {
     }
 
-    public TodoItem(Integer id, String content, boolean status) {
+    public TodoItem(String content, Integer status) {
+        this.content = content;
+        this.status = status;
+    }
+
+    public TodoItem(Integer id, String content, Integer status) {
         this.id = id;
         this.content = content;
         this.status = status;
@@ -33,11 +41,11 @@ public class TodoItem {
         this.content = content;
     }
 
-    public boolean isStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }
