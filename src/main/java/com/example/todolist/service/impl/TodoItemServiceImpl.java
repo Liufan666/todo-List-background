@@ -34,6 +34,6 @@ public class TodoItemServiceImpl implements TodoItemService {
 
     @Override
     public void deleteTodoItem(Integer id) {
-
+        todoItemRepository.deleteById(id);
     }
 }

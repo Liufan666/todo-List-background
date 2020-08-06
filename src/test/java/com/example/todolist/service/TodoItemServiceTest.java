@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
+
 @ExtendWith(MockitoExtension.class)
 public class TodoItemServiceTest {
 
@@ -47,5 +49,14 @@ public class TodoItemServiceTest {
         assertEquals(todoItem.getContent(),result.getContent());
     }
 
+    @Test
+    void should_return_true_when_delete_todoItem_given_1_todoItem() {
+        //given
 
+        Integer id =1;
+        //when
+        todoItemService.deleteTodoItem(1);
+        //then
+        verify(todoItemRepository).deleteById(1);
+    }
 }
