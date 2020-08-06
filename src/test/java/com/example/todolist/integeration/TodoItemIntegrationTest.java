@@ -67,10 +67,10 @@ public class TodoItemIntegrationTest {
 
         mockMvc.perform(post("/todoItems").contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayload)).andExpect(status().isOk());
         Integer id = todoItemRepository.findAll().stream().findFirst().get().getId();
-        mockMvc.perform(MockMvcRequestBuilders.delete("/todoItems/"+id))
+        mockMvc.perform(MockMvcRequestBuilders.delete("/todoItems/" + id))
                 .andExpect(status().is2xxSuccessful());
         List<TodoItem> todoItemList = todoItemRepository.findAll();
-        assertEquals(0,todoItemList.size());
+        assertEquals(0, todoItemList.size());
     }
 
     @Test
@@ -82,15 +82,8 @@ public class TodoItemIntegrationTest {
 
         mockMvc.perform(post("/todoItems").contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayload)).andExpect(status().isOk());
         Integer id = todoItemRepository.findAll().stream().findFirst().get().getId();
-        String todoItemJsonPayloadPut = "{\n" +
-                "      \"content\": \"kevin\",\n" +
-                "      \"status\": true\n" +
-                "     }";
-
-        mockMvc.perform(MockMvcRequestBuilders.put("/todoItems/"+id).contentType(MediaType.APPLICATION_JSON).content(todoItemJsonPayloadPut)).andExpect(status().is2xxSuccessful());
+        mockMvc.perform(MockMvcRequestBuilders.put("/todoItems/" + id)).andExpect(status().is2xxSuccessful());
         assertEquals(true, todoItemRepository.findById(id).get().getStatus());
     }
-
-
 
 }

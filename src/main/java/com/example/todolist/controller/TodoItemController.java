@@ -20,7 +20,7 @@ public class TodoItemController {
     }
 
     @GetMapping
-    public List<TodoItem> getTodoItems(){
+    public List<TodoItem> getTodoItems() {
         return todoItemService.getTodoItems();
     }
 
@@ -30,8 +30,8 @@ public class TodoItemController {
     }
 
     @PutMapping("/{id}")
-    public void updateTodoItem(@PathVariable Integer id, @RequestBody TodoItem todoItem) {
-        todoItemService.updateTodoItem(id, todoItem);
+    public void updateTodoItem(@PathVariable Integer id) {
+        todoItemService.updateTodoItem(id);
     }
 
     @DeleteMapping("/{id}")

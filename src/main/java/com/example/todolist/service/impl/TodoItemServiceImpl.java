@@ -34,6 +34,14 @@ public class TodoItemServiceImpl implements TodoItemService {
     }
 
     @Override
+    public void updateTodoItem(Integer id) {
+        TodoItem todoItem = todoItemRepository.findById(id).get();
+        boolean status = todoItem.getStatus();
+        todoItem.setStatus(!status);
+        todoItemRepository.save(todoItem);
+    }
+
+    @Override
     public void deleteTodoItem(Integer id) {
         todoItemRepository.deleteById(id);
     }

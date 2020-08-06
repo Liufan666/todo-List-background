@@ -14,4 +14,6 @@ public interface TodoItemService {
     void updateTodoItem(Integer id, TodoItem todoItem);
 
     void deleteTodoItem(Integer id);
+
+    public void updateTodoItem(Integer id);
 }
